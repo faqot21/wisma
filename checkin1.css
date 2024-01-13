@@ -1,0 +1,334 @@
+@import url("https://fonts.google.com/specimen/Poppins");
+* {
+   margin: 0;
+   padding: 0;
+   border: none;
+   outline: none;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 115px;
+  height: 115vh;
+  padding: 0 1.7rem;
+  color: white;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  background: rgba(113, 99, 186, 255);
+}
+.sidebar:hover{
+ width: 240px;
+ transition: 0.5s;
+}
+.logo {
+ height: 80px;
+  padding: 16px;
+}
+.menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  margin-bottom: 50%;
+}
+
+.menu li {
+  padding: 1rem;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover,
+.active {
+  background: #e0e0e058;
+}
+.menu a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu a span {
+  overflow: hidden;
+}
+.menu a i{
+  font-size: 1.2rem;
+}
+.logout {
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  width: 100%;
+}
+.main--content {
+   position: relative;
+   background: white;
+   width: 100%;
+   padding: 1rem;
+}
+
+.header--wrapper {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ background: rgb(201, 197, 197);
+ border-radius: 10px;
+ padding: 10px 2rem;
+ margin-bottom: 2rem;
+ justify-content: space-between;
+}
+/*card wisma */
+.card--wisma {
+ background : rgb(158, 184, 217);
+ padding: 2rem;
+ border-radius: 10px;
+}
+
+/*kartu kontainer */
+.card--container {
+ width: 100%;
+ background: rgb(238, 245, 255);
+ border-radius: 10px;
+}
+
+.card--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+/* kamar */
+.chair {
+    border: 1px solid black; 
+    margin-top: 10px;
+}
+.chair .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1ch;
+    align-items: center;
+    justify-content: space-between;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 40px 30px;
+}
+table tr td {
+   width: 90px;
+   height: 60px;
+   background: rgb(184, 184, 184);
+   border-radius: 5px;
+   cursor: pointer;
+   transition: .3s linear;
+   font-size: 15px;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   font-weight: 600;
+   padding-left: 30px;
+}
+table tr td::before {
+  background: greenyellow;
+}
+table tr td:hover {
+  background: greenyellow;
+}
+
+
+/*tabel form pemesanan*/
+.kotakpemesanan {
+  position: absolute;
+  align-items: center;
+  right: 100px;
+  top: 129px;
+  width: 35%;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.kotakpemesanan header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.kotakpemesanan .form {
+  margin-top: 20px;
+}
+.kotakpemesanan .form .input-box {
+  width: 100%;
+  margin-top: 8px;
+}
+.form .input-box {
+  width: 100px;
+  /* margin-top: 20px; */
+}
+.input-box label {
+  color: #333;
+
+}
+.form .input-box {
+  position: relative;
+  height: 35px;
+  width: 100%;
+  font-size: 1.4rem;
+  color: #707070;
+  outline: none;
+  border: 1px solid rgb(181, 181, 181);
+  border-radius: 6px;
+  padding: 8 5px;
+  
+}
+.form  .column {
+  display:flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+/*jenis kelamin button*/
+.form .gender-box {
+  margin-top: 0%;
+}
+.gender-box h3{
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.form :where(.gender-option, .gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.form :where( .gender input, .gender label){
+  cursor: pointer;
+}
+
+/* nomor Kamar */
+
+.kontak-pilihkamar {
+  position: relative;
+  min-width: 320px;
+  width: 100%;
+  margin: 80px auto 30px;
+  background-color: #e7edfe;
+}
+
+.select-btn {
+  display: flex;
+  height: 35px;
+  width: 30%;
+  margin-top: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgb(181, 181, 181);
+  background-color: #fff;
+}
+.select-btn .btn-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+}
+.select-btn .arrow-dwn {
+  display: flex;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  background:rgb(158, 184, 217);
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.select-btn.open .arrow-dwn{
+  transform: rotate(-180deg);
+}
+.list-items {
+  position: absolute;
+  margin-top: 5px;
+  border-radius: 8px;
+  height: 200px;
+  overflow: scroll;
+  background-color: #fff;
+  z-index: 3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+}
+
+.select-btn.open ~ .list-items {
+  display: block;
+}
+.list-items .item {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0 15px;
+  border-radius: 8px;
+  /* display: none; */
+}
+
+.list-items .item:hover {
+  background-color: #e7edfe;
+}
+.item .item-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+.item .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  margin-right: 12px;
+  border: 1.5px solid #c0c0c0;
+  transition: all 0.3s ease-in-out;
+}
+.item.checked .checkbox {
+  background-color: #4070f4;
+  border-color:#4070f4;
+  
+}
+.checkbox .check-icon {
+  font-size: 11px;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
+.item.checked .check-icon {
+  transform: scale(1);
+}
+.form .btn {
+  width: 30%;
+  height: 45px;
+  margin-top: 10px;
+  background: rgb(158, 184, 217);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0 .1);
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+}

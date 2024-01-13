@@ -1,0 +1,204 @@
+@import url("https://fonts.google.com/specimen/Poppins");
+* {
+   margin: 0;
+   padding: 0;
+   border: none;
+   outline: none;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 115px;
+  height: 100vh;
+  padding: 0 1.7rem;
+  color: white;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  background: rgb(8, 94, 94);
+}
+.sidebar:hover{
+ width: 240px;
+ transition: 0.5s;
+}
+.logo {
+ height: 80px;
+  padding: 16px;
+}
+.menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  margin-bottom: 50%;
+}
+
+.menu li {
+  padding: 1rem;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover,
+.active {
+  background: #e0e0e058;
+}
+.menu a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu a span {
+  overflow: hidden;
+}
+.menu a i{
+  font-size: 1.2rem;
+}
+.logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.card--container {
+  background: rgb(200, 200, 255);
+  padding: 2rem;
+  border-radius: 10px;
+}
+.card--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.main--content {
+    position: relative;
+    background: white;
+    width: 100%;
+    gap: 1ch;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+ .header--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgb(201, 197, 197);
+  border-radius: 10px;
+  padding: 10px 2rem;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+ }
+ /*card wisma */
+ .card--wisma {
+  background : rgb(158, 184, 217);
+  padding: 2rem;
+  margin-top: 10px;
+  border-radius: 10px;
+ }
+ 
+.tablelaporan {
+  min-height: 200px;
+  border: 1px solid tomato;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  overflow:auto;
+  margin: auto;
+  border-radius: 4px;
+}
+.tablelaporan .row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data-table {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 13px;
+  margin-top: 40px;
+  color: #444;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+
+.data-table>thead {
+  background-color: rgb(8, 94, 94);
+  color: whitesmoke;
+}
+
+.data-table>thead th {
+  padding: 15px;
+}
+
+.data-table th, table td{
+  border: 1px solid grey;
+}
+
+.data-table>tbody tr td {
+  padding: 15px;
+}
+
+.data-table>tbody tr td button {
+  padding: 10px;
+  width: 70px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.data-table>tbody tr td button:nth-child(1) {
+  background-color: rgb(39, 111, 191);
+  color: whitesmoke;
+}
+.data-table>tbody tr td button:nth-child(2) {
+  background-color: rgb(240, 58, 71);
+  color: whitesmoke;
+}
+.data-table>tbody tr td button:nth-child(3) {
+  background-color: rgb(19, 70, 17);
+  color: whitesmoke;
+}
+.data-table tbody tr td button:hover {
+  opacity: 0.8;
+}
+.kontak-tanggal {
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  outline: none;
+  width: 100%;
+  padding: 2px;
+}
+
+.kontak-tanggal .column {
+  display:flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+/*kalender tanggal */
+.input-tanggal {
+  position: relative;
+  height: 20px;
+  width: 80%;
+  font-size: 16px;
+  color: #707070;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  padding: 8 5px;
+}
