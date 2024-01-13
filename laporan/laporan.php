@@ -135,7 +135,7 @@ require '../koneksi.php';
                                         <button type="submit" name="hapus" class="btn">hapus</button>
                                         </a>
                                         <button type="submit" name="cetak" class="btn" >cetak</button>
-                                    </div>
+                                    </div> 
                                 </td>
                             </tr>
                             <?php
