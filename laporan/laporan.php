@@ -98,7 +98,7 @@ require '../koneksi.php';
                             $idp = $data['id_pemesanan'];
 
                             ?>
-                            <tr>
+                            <tr> 
                                 <td>
                                     <?= $i++; ?>
                                 </td>
