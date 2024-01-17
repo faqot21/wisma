@@ -150,49 +150,57 @@ require 'koneksi.php';
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="205">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">205</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="206">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">206</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="207">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">207</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="208">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">208</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="209">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">209</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="301">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">301</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="302">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">302</span>
                         </li>
                         <li class="item">
                             <span class="checkbox">
-                                <i class="fa-solid fa-check check-icon"></i>
+                            <input type="checkbox" class="checkbox" name="kamar[]" value="303">
+                                <!-- <i class="fa-solid fa-check check-icon"></i> -->
                             </span>
                             <span class="item-text">303</span>
                         </li>

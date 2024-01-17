@@ -58,25 +58,16 @@ require 'koneksi.php';
         <div class="card--wrapper">
                 <div class="payment--card light-red">
                     <div class="card--header">
-                        <!-- <div class="amount">
-
-                            <?
-                            $databayar = mysqli_query($conn, "SELECT SUM(bayar) AS bayar FROM tb_bayar");
-                            $data = mysqli_fetch_array($databayar);
-                            while ($data = mysqli_fetch_array($databayar)) {
-                                $bayar = $data['bayar'];
-                            
-                            ?>
-
+                        <?php
+                            $query = mysqli_query($conn, "SELECT SUM(bayar) AS uang_masuk FROM pemesanan");
+                            $data = mysqli_fetch_array($query);
+                        ?>
+                        <div class="amount">
                             <span class="title">Uang Masuk
                             </span>
-                            <span class="amount--value"><?'bayar'?>
+                            <span class="amount--value">Rp <?php echo $data['uang_masuk'] ?>
                             </span>
-
-                            <?
-                            } 
-                            ?>
-                        </div> -->
+                        </div>
                         <i class="fa-solid fa-coins icon"></i>
                     </div>
                     <span class="card-detail"></span>

@@ -57,7 +57,7 @@ if (isset($_GET['id_pemesanan'])) {
         </ul>
     </div>
     <div class="kotakpemesanan">
-        
+
         <header>Edit laporan pemesanan kamar</header>
         <form action="#" class="form" method="POST" id="$id_pemesanan;">
             <label for="nik">Id</label>
@@ -66,7 +66,7 @@ if (isset($_GET['id_pemesanan'])) {
             </div>
             <label for="nik">NIK</label>
             <div class="input-box">
-                <input type="text" name="nik" value="<?php echo $data['nik'] ?>"  />
+                <input type="text" name="nik" value="<?php echo $data['nik'] ?>" />
             </div>
             <label>NAMA</label>
             <div class="input-box">
@@ -82,11 +82,13 @@ if (isset($_GET['id_pemesanan'])) {
                 <label>Jenis kelamin</label>
                 <div class="gender-option">
                     <div class="gender">
-                        <input type="radio" id="check-male" name="jeniskelamin" value="laki-laki" <?php if ($data['jeniskelamin'] == 'laki-laki') echo 'selected'; ?> />
+                        <input type="radio" id="check-male" name="jeniskelamin" value="laki-laki" <?php if ($data['jeniskelamin'] == 'laki-laki')
+                            echo 'checked'; ?> />
                         <label for="check-male">laki-laki</label>
                     </div>
                     <div class="gender">
-                        <input type="radio" id="check-female" name="jeniskelamin" value="perempuan" <?php if ($data['jeniskelamin'] == 'perempuan') echo 'selected'; ?> />
+                        <input type="radio" id="check-female" name="jeniskelamin" value="perempuan" <?php if ($data['jeniskelamin'] == 'perempuan')
+                            echo 'checked'; ?> />
                         <label for="check-female">perempuan</label>
                     </div>
                 </div>
@@ -100,72 +102,23 @@ if (isset($_GET['id_pemesanan'])) {
                 </span>
             </div>
             <ul class="list-items">
-                <li class="item">
-                    <input type="checkbox" name="kamar[]" class="checkbox" value="<?= $kamar; ?>">
-                    <!-- <i class="fa-solid fa-check check-icon"></i> -->
-                    </input>
-                    <span class="item-text">202</span>
-                </li>
-                <li class="item">
-                    <input type="checkbox" class="checkbox" name="kamar[]" value="<?= $kamar; ?>">
-                    <!-- <i class="fa-solid fa-check check-icon"></i> -->
-                    </input>
-                    <span class="item-text">203</span>
-                </li>
-                <li class="item">
-                    <input type="checkbox" class="checkbox" name="kamar[]" value="<?= $kamar; ?>">
-                    <!-- <i class="fa-solid fa-check check-icon"></i> -->
-                    </input>
-                    <span class="item-text">204</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">205</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">206</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">207</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">208</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">209</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">301</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">302</span>
-                </li>
-                <li class="item">
-                    <span class="checkbox">
-                        <i class="fa-solid fa-check check-icon"></i>
-                    </span>
-                    <span class="item-text">303</span>
-                </li>
+                <?php
+                $selectedKamars = explode(',', $data['kamar']); // Assuming kamar is stored as a comma-separated string in the database
+                
+                $kamars = array('202', '203', '204', '205', '206', '207', '208', '209', '301', '302', '303');
+
+                foreach ($kamars as $kamar) {
+                    $isChecked = in_array($kamar, $selectedKamars) ? 'checked' : '';
+                    ?>
+                    <li class="item">
+                        <input type="checkbox" name="kamar[]" class="checkbox" value="<?= $kamar; ?>" <?= $isChecked; ?>>
+                        <!-- <i class="fa-solid fa-check check-icon"></i> -->
+                        </input>
+                        <span class="item-text">
+                            <?= $kamar; ?>
+                        </span>
+                    </li>
+                <?php } ?>
             </ul>
             <div class="column">
                 <label>tanggal Masuk</label>

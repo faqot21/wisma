@@ -1,5 +1,76 @@
 <?php
+// Assuming your database connection is established in 'koneksi.php'
 require '../koneksi.php';
+require '../tcpdf/tcpdf.php';
+
+function generatePDF($conn, $id_pemesanan) {
+    // Create new PDF document
+    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT,true,'UTF-8',false);
+    $pdf ->setPrintHeader(false);
+    $pdf ->setPrintFooter(false);
+
+    // Set document information
+
+    // Add a page
+    $pdf->AddPage();
+
+    // Add header row to the PDF
+    $pdf->SetFont('helvetica','B', 28);
+    $pdf->Cell(0,22,'Wisma',0,1,'C',0,'',false,'M','M');
+    $pdf->Cell(0,20,'Sekar Wangi',0,1,'C',0,'',false,'M','M');
+    $pdf->setFont('helvetica','B',10);
+    $pdf->Cell(0,15,'JL.Pelantar II NO.26, Kelurahan Tanjungpinangkota, Kecamatan Tanjungpinang Kota',0,1,'C',0,'',false,'M','M');
+    $pdf->Cell(0,15,'Provinsi Kepulauan Riau',0,1,'C',0,'',false,'M','M');
+    $pdf->SetFont('helvetica','B',10);
+    $pdf->Cell(0,15,'E-mail: stoon.club@gmail.com',0,1,'C',0,'',false,'M','M');
+    $pdf->Cell(0,10,'Mobile: 081990364216',0,1,'C',0,'C',false,'M','M');
+    
+    $pdf->Line(10,60,200,60);
+    $pdf->Line(10,65,200,65);
+
+
+    $pdf->SetFont('helvetica', 'B', 10);
+    $pdf->Cell(0,  22, '',0,1,'C',0,'');
+    $pdf->Cell(10, 10, 'No', 1);
+    $pdf->Cell(20, 10, 'NIK', 1);
+    $pdf->Cell(30, 10, 'Nama', 1);
+    $pdf->Cell(20, 10, 'No. Kamar', 1);
+    $pdf->Cell(30, 10, 'Tanggal Masuk', 1);
+    $pdf->Cell(30, 10, 'Tanggal Keluar', 1);
+    $pdf->Cell(20, 10, 'Bayar', 1);
+    $pdf->Cell(20, 10, 'Deposit', 1);
+    $pdf->Ln(); // Move to the next line
+
+    
+
+    // Get data for the specific id_pemesanan from the database
+    $query = "SELECT * FROM pemesanan WHERE id_pemesanan = $id_pemesanan";
+    $result = mysqli_query($conn, $query);
+
+    if ($data = mysqli_fetch_array($result)) {
+        // Add data to the PDF as needed
+        $pdf->Cell(10, 10, '1', 1); // Assuming you want to start with 1 for this specific case
+        $pdf->Cell(20, 10, $data['nik'], 1);
+        $pdf->Cell(30, 10, $data['nama'], 1);
+        $pdf->Cell(20, 10, $data['kamar'], 1);
+        $pdf->Cell(30, 10, $data['tanggalmasuk'], 1);
+        $pdf->Cell(30, 10, $data['tanggalkeluar'], 1);
+        $pdf->Cell(20, 10, $data['bayar'], 1);
+        $pdf->Cell(20, 10, $data['deposit'], 1);
+        $pdf->Ln(); // Move to the next line
+    }
+    $pdf->SetFont('helvetica','B',10);
+    $pdf->Cell(300,150,'Hormat Kami',0,1,'C','0');
+
+    // Save the PDF file
+    $pdf->Output('Laporan_' . $id_pemesanan . '.pdf', 'D'); // 'D' will force a download
+    exit();
+}
+
+if (isset($_POST['cetak']) && isset($_POST['id_pemesanan'])) {
+    $id_pemesanan = $_POST['id_pemesanan'];
+    generatePDF($conn, $id_pemesanan);
+}
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +169,7 @@ require '../koneksi.php';
                             $idp = $data['id_pemesanan'];
 
                             ?>
-                            <tr> 
+                            <tr>
                                 <td>
                                     <?= $i++; ?>
                                 </td>
@@ -127,15 +198,18 @@ require '../koneksi.php';
                                     <?= $deposit; ?>
                                 </td>
                                 <td>
-                                    <div class="button">
-                                        <a href="http://localhost/wisma/laporan/editlaporan.php?id_pemesanan=<?= $idp; ?>">
-                                            <button type="submit" name="edit" class="btn">edit</button>
-                                        </a>
-                                        <a href="http://localhost/wisma/laporan/hapus.php?id_pemesanan=<?php echo $data['id_pemesanan']; ?>">
-                                        <button type="submit" name="hapus" class="btn">hapus</button>
-                                        </a>
-                                        <button type="submit" name="cetak" class="btn" >cetak</button>
-                                    </div> 
+                                <div class="button">
+        <a href="http://localhost/wisma/laporan/editlaporan.php?id_pemesanan=<?= $idp; ?>">
+            <button type="submit" name="edit" class="btn">edit</button>
+        </a>
+        <a href="http://localhost/wisma/laporan/hapus.php?id_pemesanan=<?= $data['id_pemesanan']; ?>">
+            <button type="submit" name="hapus" class="btn">hapus</button>
+        </a>
+        <form method="post">
+            <input type="hidden" name="id_pemesanan" value="<?= $data['id_pemesanan']; ?>">
+            <button type="submit" name="cetak" class="btn">cetak</button>
+        </form>
+    </div>
                                 </td>
                             </tr>
                             <?php
