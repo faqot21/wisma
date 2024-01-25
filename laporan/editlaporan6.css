@@ -28,7 +28,7 @@
   transition: 0.5s;
  }
  .logo {
-  height: 80px;
+    height: 80px;
    padding: 16px;
  }
  .menu {
@@ -71,13 +71,12 @@
  }
 /*tabel form pemesanan*/
 .kotakpemesanan {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     top: 5%;
     left: 30%;
-    justify-content: center;
     width: 35%;
     background: white;
     padding: 25px;

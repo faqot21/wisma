@@ -22,7 +22,7 @@ body {
   color: white;
   overflow: hidden;
   transition: all 0.5s linear;
-  background: rgb(8, 94, 94);
+  background: rgb(113, 99, 186, 255);
 }
 .sidebar:hover{
  width: 240px;
@@ -138,7 +138,7 @@ body {
 }
 
 .data-table>thead {
-  background-color: rgb(8, 94, 94);
+  background-color: rgb(113, 113, 227);
   color: whitesmoke;
 }
 
@@ -175,30 +175,32 @@ body {
 .data-table tbody tr td button:hover {
   opacity: 0.8;
 }
-.kontak-tanggal {
-  position: relative;
-  border: 1px solid black;
-  display: flex;
-  outline: none;
-  width: 100%;
-  padding: 2px;
-}
-
-.kontak-tanggal .column {
-  display:flex;
-  column-gap: 10px;
-  align-items: center;
-}
 
 /*kalender tanggal */
 .input-tanggal {
   position: relative;
-  height: 20px;
-  width: 80%;
+  top: 20px;
+  width: 55%;
   font-size: 16px;
   color: #707070;
   outline: none;
-  border: 1px solid #fff;
+  border: 1px solid #ff0000;
   border-radius: 6px;
-  padding: 8 5px;
+  padding: 10 5px;
+}
+
+.kotak-tanggal {
+  position: relative;
+  top: 20px;
+  width: 70px;
+  font-size: 16px;
+  color: #707070;
+  outline: none;
+  border: 1px solid #ff0000;
+  border-radius: 6px;
+  padding: 10 5px;
+  
+}
+.btn {
+  cursor: pointer;
 }

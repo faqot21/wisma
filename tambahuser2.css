@@ -1,0 +1,131 @@
+@import url("https://fonts.google.com/specimen/Poppins");
+ * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+ }
+ body {
+   display: flex;
+ }
+ .sidebar {
+   position: sticky;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 115px;
+   height: 100vh;
+   padding: 0 1.7rem;
+   color: white;
+   overflow: hidden;
+   transition: all 0.5s linear;
+   background: rgba(113, 99, 186, 255);
+ }
+ .sidebar:hover{
+  width: 240px;
+  transition: 0.5s;
+ }
+ .logo {
+  height: 80px;
+   padding: 16px;
+ }
+ .menu {
+   height: 88%;
+   position: relative;
+   list-style: none;
+   margin-bottom: 50%;
+ }
+
+ .menu li {
+   padding: 1rem;
+   margin: 8px 0;
+   border-radius: 8px;
+   transition: all 0.5s ease-in-out;
+ }
+
+ .menu li:hover,
+ .active {
+   background: #e0e0e058;
+ }
+ .menu a {
+   color: white;
+   font-size: 14px;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+ }
+ .menu a span {
+   overflow: hidden;
+ }
+ .menu a i{
+   font-size: 1.2rem;
+ }
+ .logout {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+ }
+ .kotakpemesanan {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  top: 5%;
+  left: 30%;
+  width: 35%;
+  background: white;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.kotakpemesanan header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.kotakpemesanan .form {
+  margin-top: 20px;
+}
+.kotakpemesanan .form .input-box {
+  width: 100%;
+  margin-top: 8px;
+}
+.form .input-box {
+  width: 100px;
+  /* margin-top: 20px; */
+}
+.input-box label {
+  color: #333;
+
+}
+.form .input-box {
+  position: relative;
+  height: 35px;
+  width: 100%;
+  font-size: 1.4rem;
+  color: #707070;
+  outline: none;
+  border: 1px solid rgb(181, 181, 181);
+  border-radius: 6px;
+  padding: 8 5px;
+  
+}
+.form .btn {
+  width: 60%;
+  height: 45px;
+  margin-top: 10px;
+  background: rgb(158, 184, 217);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0 .1);
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+}

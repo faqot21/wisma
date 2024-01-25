@@ -332,3 +332,9 @@ table tr td:hover {
   font-weight: 600;
   cursor: pointer;
 }
+.seat {
+  /* Your existing styles for seat elements */
+
+  /* Add this style to set the background color to red for selected rooms */
+  background-color: white;
+}

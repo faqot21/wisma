@@ -1,7 +1,8 @@
 <?php
 ob_start();
-session_start();
+// session_start();
 include "koneksi.php";
+include "auth.php";
 require 'koneksi.php';
 
 
@@ -11,7 +12,7 @@ require 'koneksi.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard3.css">
+    <link rel="stylesheet" href="dashboard2.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <title>Document</title>
 </head>
@@ -37,6 +38,16 @@ require 'koneksi.php';
                  <span>Laporan</span>
                 </a>
             </li>
+            <?php
+            if ($_SESSION['role'] == 'pimpinan') {
+                echo '<li>
+                <a href="http://localhost/wisma/tambahuser.php">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Tambah user</span>
+                </a>
+            </li>';
+            }
+            ?>
             <li class="logout">
                 <a href="logout.php">
                  <i class="fas fa-sign-out-alt"></i>
@@ -89,7 +100,11 @@ require 'koneksi.php';
                         <div class="amount">
                             <span class="title">Kamar Yang Tersedia
                             </span>
-                            <span class="amount--value">15 kamar
+                            <?php
+                             $query = mysqli_query($conn, "SELECT COUNT(status_kamar) AS kosong FROM data_kamar WHERE status_kamar = 'kosong'");
+                             $data = mysqli_fetch_array($query);
+                            ?>
+                            <span class="amount--value"> <?php echo $data['kosong'] ?> kamars
                             </span>
                         </div>
                         <i class="fa-solid fa-bed icon"></i>
@@ -101,7 +116,11 @@ require 'koneksi.php';
                         <div class="amount">
                             <span class="title">Kamar Yang Terpakai
                             </span>
-                            <span class="amount--value">2 kamar
+                            <?php
+                             $query = mysqli_query($conn, "SELECT COUNT(status_kamar) AS terisi FROM data_kamar WHERE status_kamar = 'terisi'");
+                             $data = mysqli_fetch_array($query);
+                            ?>
+                            <span class="amount--value"> <?php echo $data['terisi'] ?> kamars
                             </span>
                         </div>
                         <i class="fa-solid fa-bed icon"></i>

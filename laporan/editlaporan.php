@@ -21,7 +21,7 @@ if (isset($_GET['id_pemesanan'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="editlaporan1.css">
+    <link rel="stylesheet" href="editlaporan6.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <title>Document</title>
 </head>
@@ -57,13 +57,9 @@ if (isset($_GET['id_pemesanan'])) {
         </ul>
     </div>
     <div class="kotakpemesanan">
-
-        <header>Edit laporan pemesanan kamar</header>
-        <form action="#" class="form" method="POST" id="$id_pemesanan;">
-            <label for="nik">Id</label>
-            <div class="input-box">
-                <input type="text" name="idp" value="<?= $idp; ?>" />
-            </div>
+    <h2>Edit laporan pemesanan kamar</h2>
+        <form action="#" class="form" method="POST" id="$idp;">
+            <input type="hidden" name="idp" value="<?= $idp; ?>" />
             <label for="nik">NIK</label>
             <div class="input-box">
                 <input type="text" name="nik" value="<?php echo $data['nik'] ?>" />
@@ -103,7 +99,7 @@ if (isset($_GET['id_pemesanan'])) {
             </div>
             <ul class="list-items">
                 <?php
-                $selectedKamars = explode(',', $data['kamar']); // Assuming kamar is stored as a comma-separated string in the database
+                $selectedKamars = explode(',', $data['id_kamar']); // Assuming kamar is stored as a comma-separated string in the database
                 
                 $kamars = array('202', '203', '204', '205', '206', '207', '208', '209', '301', '302', '303');
 
@@ -111,7 +107,7 @@ if (isset($_GET['id_pemesanan'])) {
                     $isChecked = in_array($kamar, $selectedKamars) ? 'checked' : '';
                     ?>
                     <li class="item">
-                        <input type="checkbox" name="kamar[]" class="checkbox" value="<?= $kamar; ?>" <?= $isChecked; ?>>
+                        <input type="checkbox" name="id_kamar[]" class="checkbox" value="<?= $kamar; ?>" <?= $isChecked; ?>>
                         <!-- <i class="fa-solid fa-check check-icon"></i> -->
                         </input>
                         <span class="item-text">
@@ -132,18 +128,29 @@ if (isset($_GET['id_pemesanan'])) {
             </div>
             <label>Deposit</label>
             <div class="input-box">
-                <input type="text" name="deposit" value="<?php echo $data['deposit'] ?>" />
+                <input type="number" name="deposit" value="<?php echo $data['deposit'] ?>" />
             </div>
             <label>Bayar</label>
             <div class="input-box">
-                <input type="text" name="bayar" value="<?php echo $data['bayar'] ?>" />
+                <input type="number" name="bayar" value="<?php echo $data['bayar'] ?>" />
             </div>
-            <button type="submit" name="pesan" class="btn">edit</button>
+            <button type="submit" name="edit" class="btn" onclick="confirmEdit()">edit</button>
         </form>
     </div>
     </div>
     </div>
-
+    <script>
+function confirmEdit() {
+    var confirmation = confirm("Are you sure you want to edit this data?");
+    if (confirmation) {
+        // If the user confirms, proceed with the form submission
+        document.getElementById("$idp;").submit();
+    } else {
+        // If the user cancels, prevent the form submission
+        return false;
+    }
+}
+</script>
     <!-- Javascript -->
     <script src="../js/script.js"></script>
 </body>
